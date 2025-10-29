@@ -142,7 +142,7 @@ productBtnEl.forEach((btn) => {
           if (productNumCell) productNumCell.innerText = idx + 1;
         });
       }
-      console.log(totalRow.children[2].innerText);
+      //   console.log(totalRow.children[2].innerText);
       if (totalRow.children[1].innerText == 0) {
         addZone.classList.remove("active");
         addZone.classList.add("nonactive");
@@ -182,8 +182,32 @@ inputEl.forEach((input) => {
 });
 
 const submitCartBtnEl = document.querySelector(".js-submit-cart");
+
 submitCartBtnEl.addEventListener("click", (e) => {
   e.stopPropagation();
+
+  // Reset tổng trước khi tính lại
+  totalRow.children[1].innerText = 0;
+  totalRow.children[2].innerText = 0;
+
+  // Lấy tất cả hàng sản phẩm trong giỏ
+  const rows = document.querySelectorAll(".added-product");
+
+  rows.forEach((row) => {
+    const quantityInput = row.querySelector(".js-new-product-quantity");
+    const quantity = Number(quantityInput.value);
+    const price = Number(row.children[2].innerText);
+
+    // Cập nhật lại tổng từng dòng
+    row.children[4].innerText = quantity * price;
+
+    // Cộng dồn vào tổng giỏ
+    totalRow.children[1].innerText =
+      Number(totalRow.children[1].innerText) + quantity;
+
+    totalRow.children[2].innerText =
+      Number(totalRow.children[2].innerText) + quantity * price;
+  });
 
   alert("Cập nhật giỏ hàng thành công");
 });
