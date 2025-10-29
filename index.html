@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <style>
+      .active {
+        display: block;
+      }
+      .nonactive {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="ml-2 mr-2">
+    <h1 class="text-3xl font-semibold">DANH SÁCH SẢN PHẨM</h1>
+    <table
+      border="1"
+      class="js-products-list mt-8 border-black border-collapse border-[2px]"
+    >
+      <tr>
+        <th>STT</th>
+        <th class="w-[80%]">Tên sản phẩm</th>
+        <th class="w-[10%]">Giá</th>
+        <th class="w-[10%]">Thêm vào giỏ</th>
+      </tr>
+      <tr class="">
+        <td>1</td>
+        <td>Sản phẩm 1</td>
+        <td class="js-productPrice">1000</td>
+        <td>
+          <form action="">
+            <input type="number" value="1" />
+            <button>Thêm vào giỏ</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Sản phẩm 2</td>
+        <td class="js-productPrice">2000</td>
+        <td>
+          <form action="">
+            <input type="number" value="1" />
+            <button>Thêm vào giỏ</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Sản phẩm 3</td>
+        <td class="js-productPrice">3000</td>
+        <td>
+          <form action="">
+            <input type="number" value="1" />
+            <button>Thêm vào giỏ</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Sản phẩm 4</td>
+        <td class="js-productPrice">4000</td>
+        <td>
+          <form action="">
+            <input type="number" value="1" />
+            <button>Thêm vào giỏ</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+    <h2 class="mt-8 mb-8 text-2xl font-semibold">GIỎ HÀNG</h2>
+    <div class="js-cart-des mt-8">Giỏ hàng không có sản phẩm</div>
+    <div class="js-added-cart hidden">
+      <table class="w-[100%]">
+        <tr>
+          <th>STT</th>
+          <th>Tên sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+          <th>Xóa</th>
+        </tr>
+        <tr class="totalRow">
+          <td colspan="3">Tổng</td>
+          <td class="js-quantity"></td>
+          <td colspan="2" class="js-total-price"></td>
+        </tr>
+      </table>
+      <hr class="mt-2" />
+      <div class="js-btn mt-2">
+        <button class="js-submit-cart">Cập nhật giỏ hàng</button>
+        <button class="js-delete-cart">Xóa giỏ hàng</button>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
