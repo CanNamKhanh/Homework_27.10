@@ -53,7 +53,7 @@ productBtnEl.forEach((btn) => {
       input.parentElement.parentElement.parentElement.children[2].innerText
     }</td>
     <td class="border-[2px] border-black">
-        <input type="number" value="${
+        <input type="number" min=1  value="${
           input.value
         }" class="js-new-product-quantity w-[100%]"/>
     </td>
@@ -186,22 +186,19 @@ const submitCartBtnEl = document.querySelector(".js-submit-cart");
 submitCartBtnEl.addEventListener("click", (e) => {
   e.stopPropagation();
 
-  // Reset tổng trước khi tính lại
   totalRow.children[1].innerText = 0;
   totalRow.children[2].innerText = 0;
 
-  // Lấy tất cả hàng sản phẩm trong giỏ
   const rows = document.querySelectorAll(".added-product");
 
   rows.forEach((row) => {
     const quantityInput = row.querySelector(".js-new-product-quantity");
     const quantity = Number(quantityInput.value);
     const price = Number(row.children[2].innerText);
+    // console.log(quantity);
 
-    // Cập nhật lại tổng từng dòng
     row.children[4].innerText = quantity * price;
 
-    // Cộng dồn vào tổng giỏ
     totalRow.children[1].innerText =
       Number(totalRow.children[1].innerText) + quantity;
 
